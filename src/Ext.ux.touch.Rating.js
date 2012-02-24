@@ -214,7 +214,7 @@ Ext.ux.touch.Rating = Ext.extend(Ext.form.Field, {
      * Start assigning values (selecting stars) when user touched the control.
      */
     onTouchStart: function(e){
-    	if(e.target == this.clearBtn.dom){
+    	if(this.clearBtn && e.target == this.clearBtn.dom){
     		this.onClear();
     		return;
     	}
