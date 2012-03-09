@@ -249,7 +249,7 @@ Ext.ux.touch.Rating = Ext.extend(Ext.form.Field, {
      * This method overrides original Sencha Touch's method because of support 0 value 
      */
     initValue: function() {
-    	var value = this.value != undefined && Ext.isNumber(value) ? this.value : this.minValue;
+    	var value = this.value != undefined && Ext.isNumber(this.value) ? this.value : this.minValue;
         this.setValue(value, true);
 
         /**
