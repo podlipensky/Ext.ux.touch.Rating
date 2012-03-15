@@ -1,9 +1,13 @@
+/* Base Rating Control styles */
 .x-rating-field {
 	
 }
 
+.x-rating-inner {
+}
+
 .x-rating-item {
-	
+	float: left;
 }
 
 .x-rating-clear {
@@ -12,83 +16,12 @@
 	background-repeat:no-repeat;
 	width: 32px;
 	height:32px;
+	float: left;
 }
+
 .x-item-disabled .x-rating-clear,
 .x-item-disabled .x-rating-item {
 	opacity: 0.4;
-}
-
-/* Circle Multi-color Rating */
-
-.x-round-rating div {
-	display: block;
-	float: left;
-	-webkit-box-shadow: 0 0 5px #888;
-	text-indent: -9999px;
-}
-
-.x-rating-0 {
-	background-color: #BD2C33 !important;
-}
-
-.x-rating-1 {
-	background-color: #E49420 !important;
-}
-
-.x-rating-2 {
-	background-color: #ECDB00 !important;
-}
-
-.x-rating-3 {
-	background-color: #3BAD54 !important;
-}
-
-.x-rating-4 {
-	background-color: #1B7DB9 !important;
-}
-
-/* Single Color Rating */
-
-.x-rating-item-hover {
-	background-color: #FF7400 !important;
-}
-
-/* Cirle gradient rating */
-
-.x-gradient-rating div {
-	display: block;
-	float: left;
-	-webkit-box-shadow: 0 0 5px #888;
-	text-indent: -9999px;
-}
-
-.x-gradient-rating-item {
-	background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 40,
-                  from(#888), to(#fff)) !important;
-}
-
-.x-gradient-rating-item-0 {
-	background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 40,
-                  from(#BD2C33), to(#fff)) !important;
-}
-
-.x-gradient-rating-item-1 {
-	background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 40,
-                  from(#E49420), to(#fff)) !important;
-}
-
-.x-gradient-rating-item-2 {
-	background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 40,
-                  from(#ECDB00), to(#fff)) !important;
-}
-.x-gradient-rating-item-3 {
-	background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 40,
-                  from(#3BAD54), to(#fff)) !important;
-}
-
-.x-gradient-rating-item-4 {
-	background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 40,
-                  from(#1B7DB9), to(#fff)) !important;
 }
 
 /*  Star Rating */
@@ -109,12 +42,6 @@
 	height:32px;
 }
 
-.x-rating-star-input div{
-	display: block;
-	float: left;
-	text-indent: -9999px;
-}
-
 /* Multi-color Star Rating */
 
 .x-rating-star-color div{
@@ -129,20 +56,4 @@
 	height:32px;
 	margin-top:2px;
 	margin-right: 2px;
-}
-
-/* Themed Star Ratings */
-
-.x-themed {
-	display: block;
-	float: left;
-	text-indent: -9999px;
-	width: 32px;
-	height:32px;
-	margin-top:2px;
-	margin-right: 2px;
-}
-
-.x-themed-hover {
-	opacity: 0.4;
 }

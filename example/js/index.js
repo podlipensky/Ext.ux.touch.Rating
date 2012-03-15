@@ -22,118 +22,27 @@ Ext.setup({
 								itemsCount : 5,
 								minValue: -1,
 								label : 'Star',
-								inputCls : 'x-rating-star-input',
 								itemCls : 'x-rating-star',
 								itemHoverCls : 'x-rating-star-hover',
-								showClear: true
+								clearIcon: false
 							}),
 							new Ext.ux.touch.Rating({
 								itemsCount : 5,
 								value: 2, //zero-based!
 								label : 'Disabled',
-								inputCls : 'x-rating-star-input',
 								itemCls : 'x-rating-star',
 								itemHoverCls : 'x-rating-star-hover',
 								disabled: true,
 								showClear: true
 							}),
 							new Ext.ux.touch.Rating({
-								singleColorPerValue: true,
-								label : 'Color Value',
-								inputCls : 'x-rating-star-color',
-								items : [{
-											hoverCls : 'x-rating-0'
-										}, {
-											hoverCls : 'x-rating-1'
-										}, {
-											hoverCls : 'x-rating-2'
-										}, {
-											hoverCls : 'x-rating-3'
-										}, {
-											hoverCls : 'x-rating-4'
-										}]
-							})]
-					}, 
-					/*{
-						xtype : 'fieldset',
-						title : 'Themed Star Rating',
-						defaults : {
-							required : true,
-							labelAlign : 'left',
-							labelWidth : '40%'
-						},
-						items: [
-							new Ext.ux.touch.Rating({
-								itemsCount : 5,
-								label : 'Star',
-								inputCls : 'x-themed',
-								itemCls : 'star',
-								itemHoverCls : 'x-themed-hover'
-							})
-						]
-					},*/
-							{
-						xtype : 'fieldset',
-						title : 'Circle Rating (fun)',
-						defaults : {
-							required : true,
-							labelAlign : 'left',
-							labelWidth : '40%'
-						},
-						items : [
-							new Ext.ux.touch.CircleRating({
-								singleColorPerValue: true,
-								inputCls : 'x-round-rating',
-								items : [{
-											hoverCls : 'x-rating-0'
-										}, {
-											hoverCls : 'x-rating-1'
-										}, {
-											hoverCls : 'x-rating-2'
-										}, {
-											hoverCls : 'x-rating-3'
-										}, {
-											hoverCls : 'x-rating-4'
-										}],
-								label : 'Rating'
-							}), 
-							new Ext.ux.touch.CircleRating({
-								inputCls : 'x-round-rating',
-								itemsCount : 4,
-								label : 'Rating'
-							}), 
-							new Ext.ux.touch.CircleRating({
-								inputCls : 'x-round-rating',
-								items : [{
-											hoverCls : 'x-rating-0'
-										}, {
-											hoverCls : 'x-rating-1'
-										}, {
-											hoverCls : 'x-rating-2'
-										}, {
-											hoverCls : 'x-rating-3'
-										}, {
-											hoverCls : 'x-rating-4'
-										}],
-								label : 'Rating'
-							}), 
-							new Ext.ux.touch.CircleRating({
-								singleColorPerValue: true,
-								inputCls : 'x-gradient-rating',
-								itemCls : 'x-gradient-rating-item',
-								items : [{
-											hoverCls : 'x-gradient-rating-item-0'
-										}, {
-											hoverCls : 'x-gradient-rating-item-1'
-										}, {
-											hoverCls : 'x-gradient-rating-item-2'
-										}, {
-											hoverCls : 'x-gradient-rating-item-3'
-										}, {
-											hoverCls : 'x-gradient-rating-item-4'
-										}],
-								label : 'Rating'
-						})]
+							    itemsCount: 5,
+							    minValue: -1,
+							    label: 'Star w/ clear',							   
+							    itemCls: 'x-rating-star',
+							    itemHoverCls: 'x-rating-star-hover',
+							    clearIcon: true
+							}), ]
 					}],
 			listeners : {
 				submit : function(form, result) {
@@ -145,12 +54,11 @@ Ext.setup({
 			}
 		};
 
-		if (Ext.is.Phone) {
+		if (Ext.os.is.iOS) {
 			formBase.fullscreen = true;
 		} else {
 			Ext.apply(formBase, {
 						autoRender : true,
-						floating : true,
 						modal : true,
 						centered : true,
 						hideOnMaskTap : false,
@@ -158,8 +66,8 @@ Ext.setup({
 						width : 480
 					});
 		}
-
-		form = new Ext.form.FormPanel(formBase);
-		form.show();
+		
+		//var form = Ext.create new Ext.form.FormPanel(formBase);
+		Ext.Viewport.add(formBase);
 	}
 });
