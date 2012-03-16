@@ -102,8 +102,9 @@ Ext.define('Ext.ux.touch.Rating', {
             cls: 'x-rating-inner'
         }
     },
-   
+
     initialize: function () {
+        
         var me = this;
         Ext.ux.touch.Rating.superclass.initialize.apply(me, arguments);
 
@@ -115,7 +116,7 @@ Ext.define('Ext.ux.touch.Rating', {
         });
     },
 
-    updateComponent: function (newComponent, oldComponent) {
+    updateComponent: function (newComponent, oldComponent) {        
         this.callParent(arguments);
         if (oldComponent) {
             //TODO: cleanup event subscriptions
@@ -124,16 +125,16 @@ Ext.define('Ext.ux.touch.Rating', {
         var innerElement = this.innerElement,
             cls = this.getCls();
 
-        this.getComponent(); //why do we make this call?
+        this.getComponent(); //why do we make this call?        
         var newConfig = Ext.applyIf({
             items: new Array(this.getItemsCount() || 0)
-        }, this.getCurrentConfig());
+        }, this.config);        
         newComponent._tpl.overwrite(newComponent.element.dom, newConfig);
-        this.items = newComponent.element.select('.x-rating-item', newComponent.element.dom);
-        if (this.getClearIcon()) {
+        this.items = newComponent.element.select('.x-rating-item', newComponent.element.dom);        
+        if (this.clearIcon) {
             this.clearBtn = newComponent.element.down('.' + this.getClearCls());
             this.clearBtn.on('tap', this.onClear, this);
-        }
+        }        
     },
 
     /*
@@ -172,11 +173,10 @@ Ext.define('Ext.ux.touch.Rating', {
     },
 
     applyValue: function (value) {
-        value = parseFloat(value);
+        value = parseFloat(value);        
         if (isNaN(value) || value === null) {
             value = this.getDefaultValue();
-        }
-
+        }        
         //round the value to 1 decimal
         value = Math.round(value * 10) / 10;
 
@@ -189,15 +189,16 @@ Ext.define('Ext.ux.touch.Rating', {
     */
     displayValue: function (value) {
         if (!this.rendered) {
-            //TODO: replace event with ST2.0 equivalent
-            this.on('painted', this.displayValue.bind(this, value), this, { single: true });
+            //TODO: replace event with ST2.0 equivalent            
+            console.log(this.displayValue);
+            this.on('painted', Ext.Function.bind(this.displayValue, this, [value]), this, { single: true });
             return;
         }
-        var items = this.items;
+        var items = this.items;        
         var count = items.getCount();
         var itemCls = this.getItemCls();
         var hoverCls = this.getItemHoverCls();
-
+        
         for (var i = 0; i < count; i++) {
             var item = items.item(i);
             item[i <= value ? 'addCls' : 'removeCls'](hoverCls);
@@ -210,7 +211,7 @@ Ext.define('Ext.ux.touch.Rating', {
         if (isNaN(value) || value === null) {
             throw 'Argument exception: value argument is not a number.';
         }
-        var minValue = this.getMinValue();
+        var minValue = this.getMinValue();        
         //auto-correct user's input
         if (Ext.isNumber(minValue) && value < minValue) {
             value = minValue;
@@ -219,8 +220,8 @@ Ext.define('Ext.ux.touch.Rating', {
         if (this.items && value > this.items.getCount()) {
             value = this.items.getCount() - 1;
         }
-        this.callParent([value]);
-        this.displayValue(value);
+        this.callParent([value]);        
+        this.displayValue(value);        
     },
 
     reset: function () {

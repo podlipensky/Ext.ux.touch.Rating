@@ -42,7 +42,15 @@ Ext.setup({
 							    itemCls: 'x-rating-star',
 							    itemHoverCls: 'x-rating-star-hover',
 							    clearIcon: true
-							}), ]
+							}),
+                            new Ext.ux.touch.Rating({
+                                itemsCount: 5,
+                                minValue: -1,
+                                label: 'Image less',
+                                cls: 'x-imageless-rating',
+                                itemCls: 'x-imageless-star',
+                                itemHoverCls: 'x-imageless-hover'
+                            })]
 					}],
 			listeners : {
 				submit : function(form, result) {

@@ -57,3 +57,28 @@
 	margin-top:2px;
 	margin-right: 2px;
 }
+
+/* Image-less Star Rating */
+.x-imageless-rating .x-rating-inner > div
+{
+    width: 1.1em;
+    font-size: 1.8em;
+    margin-top: 2px;
+    color: transparent; 
+}    
+
+.x-imageless-star:before
+{    
+    -webkit-background-clip: text;    
+    content: "\2605";    
+    background-image: -webkit-linear-gradient(top, #E9E9E9 0%,#BCBCBC 100%);    
+    
+}
+
+.x-imageless-hover:before
+{
+    -webkit-background-clip: text;    
+    content: "\2605"; 
+    background-image: -webkit-linear-gradient(top, #ffc578 0%,#fb9d23 100%);        
+    text-shadow: 0 0 .2em #fb9d23;
+}   
