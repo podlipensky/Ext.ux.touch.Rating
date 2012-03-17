@@ -19,7 +19,16 @@ Ext.namespace('Ext.ux.touch');
 Ext.define('Ext.ux.touch.Rating', {
     extend: 'Ext.field.Field',
     xtype: 'rating',
-    config: {
+    
+	 /**
+     * @event change
+     * Fires just after user selected new value
+     * @param {Ext.ux.touch.Rating} this This field
+     * @param {Mixed} newValue The new value
+     * @param {Mixed} oldValue The original value
+     */
+	
+	config: {
         /**
         * @cfg {String} baseCls
         * The base CSS class to apply to this components's element. This will also be prepended to
@@ -131,7 +140,7 @@ Ext.define('Ext.ux.touch.Rating', {
         }, this.config);        
         newComponent._tpl.overwrite(newComponent.element.dom, newConfig);
         this.items = newComponent.element.select('.x-rating-item', newComponent.element.dom);        
-        if (this.clearIcon) {
+        if (this.config.clearIcon) {
             this.clearBtn = newComponent.element.down('.' + this.getClearCls());
             this.clearBtn.on('tap', this.onClear, this);
         }        
@@ -190,7 +199,6 @@ Ext.define('Ext.ux.touch.Rating', {
     displayValue: function (value) {
         if (!this.rendered) {
             //TODO: replace event with ST2.0 equivalent            
-            console.log(this.displayValue);
             this.on('painted', Ext.Function.bind(this.displayValue, this, [value]), this, { single: true });
             return;
         }
@@ -207,7 +215,8 @@ Ext.define('Ext.ux.touch.Rating', {
     },
 
     setValue: function (value) {
-        value = parseFloat(value);
+        var currentValue = this._value;
+		value = parseFloat(value);
         if (isNaN(value) || value === null) {
             throw 'Argument exception: value argument is not a number.';
         }
@@ -221,7 +230,8 @@ Ext.define('Ext.ux.touch.Rating', {
             value = this.items.getCount() - 1;
         }
         this.callParent([value]);        
-        this.displayValue(value);        
+        this.displayValue(value);      
+		this.fireEvent('change', this, value, currentValue);		
     },
 
     reset: function () {

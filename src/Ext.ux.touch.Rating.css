@@ -82,3 +82,15 @@
     background-image: -webkit-linear-gradient(top, #ffc578 0%,#fb9d23 100%);        
     text-shadow: 0 0 .2em #fb9d23;
 }   
+
+/* Modal Rating */
+
+.x-modal-rating {
+	background: transparent !important;
+	margin-top: -1em;
+}
+
+.rating-desc {
+	color: #fff;
+	margin-top: 2.7em;
+}
