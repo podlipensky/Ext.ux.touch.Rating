@@ -6,8 +6,8 @@
  * <p>Sample Usage</p>
  * <pre><code>
  * 		new Ext.ux.touch.Rating({
- * 			itemsCount : 5,
  * 			label : 'Rating',
+ * 			itemsCount : 5,
  * 			itemCls : 'x-rating-star',
  * 			itemHoverCls : 'x-rating-star-hover'
  * 		})
@@ -243,4 +243,27 @@ Ext.define('Ext.ux.touch.Rating', {
             this.setValue(this.getDefaultValue());
         }
     }
+}, function() {
+    //<deprecated product=touch since=2.0>
+    /**
+     * @member Ext.ux.touch.Rating
+     * @cfg {Boolean} showClear
+     * Determine whether to show clear button
+     * @deprecated 2.0.0 Please use {@link #clearIcon} instead
+     */
+    Ext.deprecateProperty(this, 'showClear', 'clearIcon', "Ext.ux.touch.Rating.showClear has been removed, use showClear instead");
+
+    /**
+     * @member Ext.ux.touch.Rating
+     * @cfg {Boolean} singleColorPerValue
+     * @removed 2.0.0
+     */
+    Ext.deprecateProperty(this, 'singleColorPerValue', null, "Ext.ux.touch.Rating.singleColorPerValue has been removed");
+	
+	/**
+     * @member Ext.ux.touch.Rating
+     * @cfg {Boolean} useClearIcon
+     * @removed 2.0.0
+     */
+    Ext.deprecateProperty(this, 'useClearIcon', null, "Ext.ux.touch.Rating.useClearIcon has been removed");  
 });

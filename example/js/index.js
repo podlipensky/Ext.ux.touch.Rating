@@ -1,5 +1,5 @@
 Ext.application({
-	name: 'Star Rating Example',
+	name: 'StarRatingExample',
 	icon : 'resources/img/icon.png',
 	tabletStartupScreen : 'resources/img/tablet_startup.png',
 	phoneStartupScreen : 'resources/img/phone_startup.png',
@@ -32,35 +32,31 @@ Ext.application({
 						]
 					},
 					{
-						xtype: 'rating',
-						itemsCount : 5,
-						minValue: -1,
+						xtype: 'rating',						
 						label : 'Star',
+						itemsCount : 5,
 						itemCls : 'x-rating-star',
-						itemHoverCls : 'x-rating-star-hover',
-						clearIcon: false
+						itemHoverCls : 'x-rating-star-hover'
 					},
 					{
 						xtype: 'rating',
-						itemsCount : 5,
-						value: 2, //zero-based!
 						label : 'Disabled',
+						itemsCount : 5,
+						value: 2, //zero-based!						
 						itemCls : 'x-rating-star',
 						itemHoverCls : 'x-rating-star-hover',
 						disabled: true
 					},
 					{
 						xtype: 'rating',
+						label: 'Star w/ clear',							   
 					    itemsCount: 5,
-					    minValue: -1,
-					    label: 'Star w/ clear',							   
 					    itemCls: 'x-rating-star',
 					    itemHoverCls: 'x-rating-star-hover',
 					    clearIcon: true //show clear icon right after stars
 					},
                     new Ext.ux.touch.Rating({// you can create instance of the control in the following way as well
                         itemsCount: 5,
-                        minValue: -1,
                         label: 'Image less',
                         cls: 'x-imageless-rating',
                         itemCls: 'x-imageless-star',
