@@ -95,19 +95,16 @@ Ext.define('Ext.ux.touch.Rating', {
         disabled: false,
 
         component: {
-            tpl: new Ext.XTemplate(
+            xtype: 'component',
+            tpl: [
                 '<tpl for="items">',
-				    '<div index="{[xindex - 1]}" class="{parent.itemCls} x-rating-item">',
-            //'{tooltip}', TBD
-				    '</div>',
-			    '</tpl>',
-			    '<tpl if="clearIcon">',
-				    '<div class="{clearCls}">',
-				    '</div>',
-			    '</tpl>',
-			{
-			    compile: true
-			}),
+                '<div index="{[xindex - 1]}" class="{parent.itemCls} x-rating-item">',
+                '</div>',
+                '</tpl>',
+                '<tpl if="clearIcon">',
+                '<div class="{clearCls}">',
+                '</div>',
+                '</tpl>'].join(""),
             cls: 'x-rating-inner'
         }
     },
